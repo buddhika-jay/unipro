@@ -8,9 +8,9 @@
  */
 echo "start";
 //namespace login;
-include_once '../../lib/ussd/MoUssdReceiver.php';
-include_once '../../lib/ussd/MtUssdSender.php';
-include_once '../log.php';
+include_once '../libs/ussd/MoUssdReceiver.php';
+include_once '../libs/ussd/MtUssdSender.php';
+include_once '../libs/log.php';
 echo "include";
 ini_set('error_log', 'ussd-app-error.log');
 
