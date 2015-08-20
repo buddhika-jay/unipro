@@ -178,7 +178,14 @@ if (($receiver->getUssdOperation()) == "mo-cont") {
         $responseExitMsg = "Exit Program!";
         $response = loadUssdSender($sessionId, $responseExitMsg);
         session_destroy();
-    } else {
+    }
+
+    if ($receiver->getMessage() == "exit") {
+        $responseExitMsg = "Exit Program!";
+        $response = loadUssdSender($sessionId, $responseExitMsg);
+        session_destroy();
+    }
+    else {
         logFile("Selected response message := " . $responseMsg[$menuName]);
         $response = loadUssdSender($sessionId, $responseMsg[$menuName]);
     }
