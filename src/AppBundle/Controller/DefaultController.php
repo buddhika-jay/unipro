@@ -20,6 +20,6 @@ class DefaultController extends Controller
     }
 
     public function welcomeAction(){
-        return this->render('AppBndle:Welcome:home.html.twig');
+        return $this->render('AppBndle:Welcome:home.html.twig');
     }
 }
