@@ -14,9 +14,9 @@ use Doctrine\ORM\Mapping as ORM;
 
 /**
  * @ORM\Entity
- * @ORM\Table(name="fos_user")
+ * @ORM\Table(name="student")
  */
-class User extends BaseUser
+class Student extends BaseUser
 {
     /**
      * @ORM\Id
@@ -24,6 +24,11 @@ class User extends BaseUser
      * @ORM\GeneratedValue(strategy="AUTO")
      */
     protected $id;
+
+    /**
+     * @ORM\Column(type="string", length=10)
+     */
+    protected $phone_number;
 
     public function __construct()
     {
@@ -34,7 +39,7 @@ class User extends BaseUser
     /**
      * Get id
      *
-     * @return integer 
+     * @return integer
      */
     public function getId()
     {
@@ -57,7 +62,7 @@ class User extends BaseUser
     /**
      * Get phone_number
      *
-     * @return string 
+     * @return string
      */
     public function getPhoneNumber()
     {

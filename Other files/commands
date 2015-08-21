@@ -1,0 +1,17 @@
+#installing composer locally
+php -r "readfile('https://getcomposer.org/installer');" | php
+
+app/console router:debug
+php app/console doctrine:database:create
+php app/console doctrine:schema:update --dump-sql
+php app/console doctrine:schema:update --force
+
+php app/console doctrine:generate:entity
+
+php app/console doctrine:generate:entities
+
+#installing fos user bundle
+#http://symfony.com/doc/current/bundles/FOSUserBundle/index.html
+composer require friendsofsymfony/user-bundle "~2.0@dev"
+
+
