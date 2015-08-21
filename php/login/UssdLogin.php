@@ -6,11 +6,12 @@
  * Date: 8/20/15
  * Time: 5:14 PM
  */
-
+echo "start";
 //namespace login;
 include_once '../libs/ussd/MoUssdReceiver.php';
 include_once '../libs/ussd/MtUssdSender.php';
 include_once '../libs/log.php';
+echo "include";
 ini_set('error_log', 'ussd-app-error.log');
 
 $receiver = new MoUssdReceiver(); // Create the Receiver object
@@ -179,6 +180,11 @@ if (($receiver->getUssdOperation()) == "mo-cont") {
         session_destroy();
     }
 
+    if ($receiver->getMessage() == "exit") {
+        $responseExitMsg = "Exit Program!";
+        $response = loadUssdSender($sessionId, $responseExitMsg);
+        session_destroy();
+    }
     else {
         logFile("Selected response message := " . $responseMsg[$menuName]);
         $response = loadUssdSender($sessionId, $responseMsg[$menuName]);
