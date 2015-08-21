@@ -1,35 +1,33 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: buddhika
- * Date: 8/21/15
- * Time: 12:53 PM
- */
 
 namespace UniproBundle\Entity;
 
-
-use FOS\UserBundle\Model\User as BaseUser;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * @ORM\Entity
- * @ORM\Table(name="fos_user")
+ * Customer
+ *
+ * @ORM\Table()
+ * @ORM\Entity(repositoryClass="UniproBundle\Entity\CustomerRepository")
  */
-class User extends BaseUser
+class Customer
 {
     /**
+     * @var integer
+     *
+     * @ORM\Column(name="id", type="integer")
      * @ORM\Id
-     * @ORM\Column(type="integer")
      * @ORM\GeneratedValue(strategy="AUTO")
      */
-    protected $id;
+    private $id;
 
-    public function __construct()
-    {
-        parent::__construct();
-        // your own logic
-    }
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="phone_number", type="string", length=10)
+     */
+    private $phoneNumber;
+
 
     /**
      * Get id
@@ -42,25 +40,25 @@ class User extends BaseUser
     }
 
     /**
-     * Set phone_number
+     * Set phoneNumber
      *
      * @param string $phoneNumber
-     * @return User
+     * @return Customer
      */
     public function setPhoneNumber($phoneNumber)
     {
-        $this->phone_number = $phoneNumber;
+        $this->phoneNumber = $phoneNumber;
 
         return $this;
     }
 
     /**
-     * Get phone_number
+     * Get phoneNumber
      *
      * @return string 
      */
     public function getPhoneNumber()
     {
-        return $this->phone_number;
+        return $this->phoneNumber;
     }
 }
