@@ -8,8 +8,9 @@
 
 namespace UniproBundle;
 
+use Symfony\Component\HttpKernel\Bundle\Bundle;
 
-class UniproBundle
+class UniproBundle extends Bundle
 {
 
 }
