@@ -1,0 +1,5 @@
+_assetic:
+    resource: .
+    type: assetic
+_app:
+    resource: /home/buddhika/Documents/Programming/Ideamart/unipro/app/config/routing_dev.yml
